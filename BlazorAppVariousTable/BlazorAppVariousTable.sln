@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppVariousTable", "BlazorAppVariousTable\BlazorAppVariousTable.csproj", "{BFAE483A-0358-4CD6-9489-C82BF04232D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFAE483A-0358-4CD6-9489-C82BF04232D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFAE483A-0358-4CD6-9489-C82BF04232D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFAE483A-0358-4CD6-9489-C82BF04232D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFAE483A-0358-4CD6-9489-C82BF04232D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32B53054-59EF-45F4-AFBF-DBCC3F10E88E}
+	EndGlobalSection
+EndGlobal

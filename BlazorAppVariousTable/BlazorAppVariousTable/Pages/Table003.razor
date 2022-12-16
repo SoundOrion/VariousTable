@@ -1,0 +1,72 @@
+﻿@page "/table003"
+
+<PageTitle>テーブルを作成する</PageTitle>
+<h1>テーブルを作成する</h1>
+
+画像と同じようなテーブルを作成するサンプル
+<br />
+
+<p>
+    <img src="images/table003.jpg" />
+</p>
+
+<br />
+作成したサンプル
+<br />
+
+<div>
+    <table class="design01">
+        <tbody>
+             <tr>
+                <th rowspan="2">販売日</th>
+                <th colspan="3">大項目</th>
+            </tr>
+            <tr>
+                @*<th>販売日</th>*@
+                <th>商品</th>
+                <th>個数</th>
+                <th>価格</th>
+            </tr>
+
+            @if (fruits != null) foreach (var f in fruits)
+                {
+                    <tr>
+                        <td>@f.Date.ToShortDateString()</td>
+                        <td>@f.Product</td>
+                        <td>@f.Quantity</td>
+                        <td>@f.Price</td>
+                    </tr>
+                }
+
+        </tbody>
+    </table>
+</div>
+
+@code {
+
+    private List<Fruits> fruits;
+
+    protected override void OnInitialized()
+    {
+        fruits = new List<Fruits>
+        {
+            new Fruits { Date = new DateTime(2017, 12, 1), Product="りんご", Quantity= 10000, Price=100},
+            new Fruits { Date = new DateTime(2018, 6, 1), Product="みかん", Quantity= 4000, Price=120},
+            new Fruits { Date = new DateTime(2019, 12, 1), Product="バナナ", Quantity= 5000, Price=90},
+            new Fruits { Date = new DateTime(2019, 6, 1), Product="みかん", Quantity= 40000, Price=150},
+            new Fruits { Date = new DateTime(2020, 12, 1), Product="バナナ", Quantity= 100000, Price=200}
+        };
+
+    }
+
+    public class Fruits
+    {
+        public DateTime Date { get; set; }
+
+        public string Product { get; set; }
+
+        public int Quantity { get; set; }
+
+        public double Price { get; set; }
+    }
+}
