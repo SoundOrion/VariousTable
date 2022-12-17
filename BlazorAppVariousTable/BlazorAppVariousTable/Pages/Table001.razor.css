@@ -5,3 +5,7 @@
 .design01 th, .design01 td {
         border: 1px solid gray;
 }
+
+    .design01 th {
+        background-color: aqua;
+    }
