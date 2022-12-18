@@ -25,14 +25,14 @@
                 <th>価格</th>
             </tr>
 
-            @if (fruits != null) foreach (var f in fruits)
+            @if (fruits != null) foreach (var f in fruits.Select((value, index) => new { value, index }))
                 {
                     <tr>
-                        <th>行1</th>
-                        <td>@f.Date.ToShortDateString()</td>
-                        <td>@f.Product</td>
-                        <td>@f.Quantity</td>
-                        <td>@f.Price</td>
+                        <th>行@(f.index + 1)</th>
+                        <td>@f.value.Date.ToShortDateString()</td>
+                        <td>@f.value.Product</td>
+                        <td>@f.value.Quantity</td>
+                        <td>@f.value.Price</td>
                     </tr>
                 }
 
