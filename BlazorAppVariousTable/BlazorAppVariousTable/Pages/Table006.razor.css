@@ -1,0 +1,17 @@
+﻿.design01 {
+    border: 1px solid gray;
+}
+
+    .design01 th, .design01 td {
+        border: 1px solid gray;
+    }
+
+    .design01 th {
+        background-color: aqua;
+    }
+
+    /* 右寄せ */
+    .design01 tr td:nth-of-type(3),
+    .design01 tr td:nth-of-type(4) {
+        text-align: right;
+    }
