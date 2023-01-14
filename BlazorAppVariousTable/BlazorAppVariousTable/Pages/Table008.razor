@@ -1,0 +1,193 @@
+﻿@page "/table008"
+
+<PageTitle>レイアウトサンプル</PageTitle>
+<h1>table で棒グラフ</h1>
+
+<table class="table1">
+    <caption>グラフ見出し</caption>
+    <tbody>
+        <tr>
+            <td>
+                <div class="scale_y">見出し1</div>
+                <div class="div_bar">
+                    <span class="bar bar1" style="width:130px"></span><span class="bar_label">130</span><br>
+                    <span class="bar bar2" style="width:160px"></span><span class="bar_label">160</span><br>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="scale_y">見出し2</div>
+                <div class="div_bar">
+                    <span class="bar bar1" style="width:200px"></span><span class="bar_label">200</span><br>
+                    <span class="bar bar2" style="width:120px"></span><span class="bar_label">120</span><br>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="scale_y">見出し3</div>
+                <div class="div_bar">
+                    <span class="bar bar1" style="width:150px"></span><span class="bar_label">150</span><br>
+                    <span class="bar bar2" style="width:100px"></span><span class="bar_label">100</span><br>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="scale_y">見出し4</div>
+                <div class="scale_0">0</div>
+                <div class="scale_x">50</div>
+                <div class="div_bar">
+                    <span class="bar bar1" style="width:80px"></span><span class="bar_label">80</span><br>
+                    <span class="bar bar2" style="width:40px"></span><span class="bar_label">40</span><br>
+                </div>
+            </td>
+            <td>
+                <div class="scale_x">100</div>
+            </td>
+            <td>
+                <div class="scale_x">150</div>
+            </td>
+            <td>
+                <div class="scale_x">200</div>
+            </td>
+            <td>
+                <div class="scale_x">250</div>
+                <div class="unit_x">(単位)</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<pre>
+・table の td の枠線でグラフの軸やグリッド線を表示。
+  グラフのバーを表示する区画の div を td に対して position:absolute で表示。
+  グラフのバーは span を inline-block にしてサイズを指定して背景色をつけている。
+
+・目盛りやラベルの td をなしにしたバージョン。
+
+・古いブラウザはうまく表示しないかもしれないので注意。
+＊実際に使うときには table のHTMLは JavaScript で生成する。
+</pre>
+
+
+<style>
+    .table1 {
+        border-collapse: collapse;
+        /* border: 2px solid #666; */
+        margin: 0 0 50px 70px;
+        background: #dde;
+    }
+
+        .table1 caption {
+            font-family: Meiryo;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 0.2em;
+            color: #444;
+        }
+
+        .table1 td {
+            position: relative; /* 必要 */
+            border: 1px solid #ccc;
+            padding: 0;
+            width: 49px; /* 枠線が 1pxあるので 50 - 1 = 49 */
+            height: 47px; /* グラフ１セットの行の高さ */
+            font-size: 10pt;
+            /* font-family: MS Gothic; */
+            font-family: Meiryo;
+            color: #333;
+        }
+
+    /* 原点 */
+    .scale_0 {
+        position: absolute;
+        top: 48px;
+        left: -8px;
+    }
+
+    .scale_x {
+        position: absolute;
+        top: 48px;
+        left: 20px;
+        /* 目盛りの数字のケタ数によって幅が変動するとまずいので width で固定 */
+        width: 40px;
+        text-align: right;
+    }
+
+    .scale_y {
+        position: absolute;
+        top: 12px;
+        left: -65px;
+        /* 目盛りの数字のケタ数によって幅が変動するとまずいので width で固定 */
+        width: 60px;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    /* 単位X */
+    .unit_x {
+        position: absolute;
+        width: 50px;
+        top: 62px;
+        left: 10px;
+    }
+
+    /* 単位Y */
+    .unit_y {
+        position: absolute;
+        width: 50px;
+        top: -25px;
+        left: -40px;
+    }
+
+    .table1 td .div_bar { /* グラフのバーの外側のdiv */
+        width: 500px;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        font-size: 10pt;
+        line-height: 19px; /* バーの間隔 = (line-height) - barX.height */
+        top: 4px;
+    }
+
+    .bar {
+        display: inline-block;
+        margin: 0 0.3em 0 0;
+        padding: 0;
+        height: 17px; /* バーの太さ */
+    }
+
+    .bar1 {
+        background: #3aa; /* バーの色 */
+    }
+
+    .bar2 {
+        background: #c93;
+    }
+
+    .bar_label { /* バーの右側の文字 */
+        font-family: MS PGothic;
+        font-size: 9pt;
+        vertical-align: 3px;
+    }
+</style>

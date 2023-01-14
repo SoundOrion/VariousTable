@@ -1,0 +1,131 @@
+﻿@page "/table007"
+
+<PageTitle>レイアウトサンプル</PageTitle>
+<h1>table でグラフ、目盛りの数字</h1>
+<pre>table をグラフのグリッド代わりにしたサンプル。
+td を position:relative; 目盛りの文字を position:absolute; で配置
+</pre>
+
+<table class="table1">
+    <caption>目盛りのサンプル</caption>
+    <tbody>
+        <tr>
+            <td>
+                <div class="scale_y">50</div>
+                <div class="unit_y">(単位)</div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><div class="scale_y">40</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><div class="scale_y">30</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><div class="scale_y">20</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="scale_y">10</div>
+                <div class="scale_0">0</div>
+                <div class="scale_x">10</div>
+            </td>
+            <td><div class="scale_x">20</div></td>
+            <td><div class="scale_x">30</div></td>
+            <td>
+                <div class="scale_x">40</div>
+                <div class="unit_x">(単位)</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<pre class="note">
+動作: Firefox81, Chrome83, Edge83
+
+・ブラウザによって文字の位置が多少ずれる。
+  IE が Firefox より若干高い位置になる。
+</pre>
+
+<style>
+    .table1 {
+        border-collapse: collapse;
+        /* border: 2px solid #666; */
+        margin: 3em 0 50px 50px;
+        background: #dde;
+    }
+
+        .table1 caption {
+            font-family: Meiryo;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 0.2em;
+            color: #444;
+        }
+
+        .table1 td {
+            position: relative;
+            border: 1px solid #999;
+            padding: 0;
+            width: 50px;
+            height: 40px;
+            font-size: 10pt;
+            font-family: MS Gothic;
+        }
+
+    /* 原点 */
+    .scale_0 {
+        position: absolute;
+        top: 38px;
+        left: -8px;
+    }
+
+    .scale_x {
+        position: absolute;
+        top: 38px;
+        left: 16px;
+        /* 目盛りの数字のケタ数によって幅が変動するとまずいので width で固定 */
+        width: 40px;
+        text-align: right;
+    }
+
+    .scale_y {
+        position: absolute;
+        top: -14px;
+        left: -44px;
+        /* 目盛りの数字のケタ数によって幅が変動するとまずいので width で固定 */
+        width: 40px;
+        text-align: right;
+    }
+
+    /* 単位X */
+    .unit_x {
+        position: absolute;
+        width: 50px;
+        top: 54px;
+        left: 10px;
+    }
+
+    /* 単位Y */
+    .unit_y {
+        position: absolute;
+        width: 50px;
+        top: -28px;
+        left: -40px;
+    }
+
+</style>
